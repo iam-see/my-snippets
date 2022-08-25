@@ -1,0 +1,1419 @@
+{
+  "folders": [
+    {
+      "name": "loading特效",
+      "parentId": null,
+      "isOpen": false,
+      "isSystem": false,
+      "defaultLanguage": "html",
+      "id": "0_jBleIO",
+      "createdAt": 1661437613841,
+      "updatedAt": 1661446011228,
+      "index": 0
+    },
+    {
+      "name": "String",
+      "parentId": "5VFeR9JD",
+      "isOpen": false,
+      "isSystem": false,
+      "defaultLanguage": "plain_text",
+      "id": "-by66YAM",
+      "createdAt": 1661446114134,
+      "updatedAt": 1661446119733,
+      "index": 0
+    },
+    {
+      "name": "Array",
+      "parentId": "5VFeR9JD",
+      "isOpen": false,
+      "isSystem": false,
+      "defaultLanguage": "plain_text",
+      "id": "K3nXnVje",
+      "createdAt": 1661445976488,
+      "updatedAt": 1661446044009,
+      "index": 1
+    },
+    {
+      "name": "utils",
+      "parentId": null,
+      "isOpen": false,
+      "isSystem": false,
+      "defaultLanguage": "javascript",
+      "id": "5VFeR9JD",
+      "createdAt": 1661438537639,
+      "updatedAt": 1661446011229,
+      "index": 1
+    },
+    {
+      "name": "DOM",
+      "parentId": null,
+      "isOpen": false,
+      "isSystem": false,
+      "defaultLanguage": "javascript",
+      "id": "MUTzT3eM",
+      "createdAt": 1661439927848,
+      "updatedAt": 1661446011229,
+      "index": 2
+    },
+    {
+      "name": "BOM",
+      "parentId": null,
+      "isOpen": false,
+      "isSystem": false,
+      "defaultLanguage": "plain_text",
+      "id": "bbg1UnNX",
+      "createdAt": 1661446327560,
+      "updatedAt": 1661446331251,
+      "index": 3
+    },
+    {
+      "name": "CSS",
+      "parentId": null,
+      "isOpen": false,
+      "isSystem": false,
+      "defaultLanguage": "css",
+      "id": "JAWHL2B3",
+      "createdAt": 1661443882504,
+      "updatedAt": 1661446011231,
+      "index": 4
+    },
+    {
+      "name": "算法",
+      "parentId": null,
+      "isOpen": true,
+      "isSystem": false,
+      "defaultLanguage": "javascript",
+      "id": "cZdjAY4m",
+      "createdAt": 1661445396155,
+      "updatedAt": 1661446011231,
+      "index": 5
+    },
+    {
+      "name": "其他",
+      "parentId": null,
+      "isOpen": false,
+      "isSystem": false,
+      "defaultLanguage": "javascript",
+      "id": "PfVxt6qK",
+      "createdAt": 1661445558312,
+      "updatedAt": 1661446011231,
+      "index": 6
+    }
+  ],
+  "snippets": [
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "0_jBleIO",
+      "tagsIds": [],
+      "description": null,
+      "name": "立体方块",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "html",
+          "value": "<div class=\"scene\">\n  <div class=\"cube-wrapper\">\n    <div class=\"cube\">\n      <div class=\"cube-faces\">\n        <div class=\"cube-face shadow\"></div>\n        <div class=\"cube-face bottom\"></div>\n        <div class=\"cube-face top\"></div>\n        <div class=\"cube-face left\"></div>\n        <div class=\"cube-face right\"></div>\n        <div class=\"cube-face back\"></div>\n        <div class=\"cube-face front\"></div>\n      </div>\n    </div>\n  </div>\n</div>\n"
+        },
+        {
+          "label": "子片段 2",
+          "language": "css",
+          "value": ":root {\n  --cube-face-size: 50px;\n  --cube-face-color: transparent;\n  --cube-edge-color: royalblue;\n}\n\n.scene {\n  position: relative;\n  z-index: 2;\n  height: 110px;\n  width: 110px;\n  display: grid;\n  place-items: center;\n}\n\n.cube-wrapper {\n  transform-style: preserve-3d;\n  animation: bouncing 2s infinite;\n}\n\n.cube {\n  transform-style: preserve-3d;\n  transform: rotateX(45deg) rotateZ(45deg);\n  animation: rotation 2s infinite;\n}\n\n.cube-faces {\n  transform-style: preserve-3d;\n  height: var(--cube-face-size);\n  width: var(--cube-face-size);\n  position: relative;\n  transform-origin: 0 0;\n  transform: translateX(0) translateY(0) translateZ(-40px);\n}\n\n.cube-face {\n  position: absolute;\n  inset: 0;\n  background: var(--cube-face-color);\n  border: solid 1px var(--cube-edge-color);\n}\n.cube-face.shadow {\n  transform: translateZ(calc(var(--cube-face-size) * -1));\n  animation: bouncing-shadow 2s infinite;\n}\n.cube-face.top {\n  transform: translateZ(var(--cube-face-size));\n}\n.cube-face.front {\n  transform-origin: 0 50%;\n  transform: rotateY(-90deg);\n}\n.cube-face.back {\n  transform-origin: 0 50%;\n  transform: rotateY(-90deg) translateZ(calc(var(--cube-face-size) * -1));\n}\n.cube-face.right {\n  transform-origin: 50% 0;\n  transform: rotateX(-90deg) translateY(calc(var(--cube-face-size) * -1));\n}\n.cube-face.left {\n  transform-origin: 50% 0;\n  transform: rotateX(-90deg) translateY(calc(var(--cube-face-size) * -1))\n    translateZ(var(--cube-face-size));\n}\n\n@keyframes rotation {\n  0% {\n    transform: rotateX(45deg) rotateY(0) rotateZ(45deg);\n    animation-timing-function: cubic-bezier(0.17, 0.84, 0.44, 1);\n  }\n  50% {\n    transform: rotateX(45deg) rotateY(0) rotateZ(225deg);\n    animation-timing-function: cubic-bezier(0.76, 0.05, 0.86, 0.06);\n  }\n  100% {\n    transform: rotateX(45deg) rotateY(0) rotateZ(405deg);\n    animation-timing-function: cubic-bezier(0.17, 0.84, 0.44, 1);\n  }\n}\n@keyframes bouncing {\n  0% {\n    transform: translateY(-40px);\n    animation-timing-function: cubic-bezier(0.76, 0.05, 0.86, 0.06);\n  }\n  45% {\n    transform: translateY(40px);\n    animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);\n  }\n  100% {\n    transform: translateY(-40px);\n    animation-timing-function: cubic-bezier(0.76, 0.05, 0.86, 0.06);\n  }\n}\n@keyframes bouncing-shadow {\n  0% {\n    transform: translateZ(calc(var(--cube-face-size) * -1)) scale(1.3);\n    animation-timing-function: cubic-bezier(0.76, 0.05, 0.86, 0.06);\n    opacity: 0.05;\n  }\n  45% {\n    transform: translateZ(0);\n    animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);\n    opacity: 0.3;\n  }\n  100% {\n    transform: translateZ(calc(var(--cube-face-size) * -1)) scale(1.3);\n    animation-timing-function: cubic-bezier(0.76, 0.05, 0.86, 0.06);\n    opacity: 0.05;\n  }\n}"
+        }
+      ],
+      "id": "_emZqkpJ",
+      "createdAt": 1661437625683,
+      "updatedAt": 1661438407935
+    },
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "0_jBleIO",
+      "tagsIds": [],
+      "description": null,
+      "name": "四分球",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "html",
+          "value": "<div class=\"loader\"></div>"
+        },
+        {
+          "label": "子片段 2",
+          "language": "css",
+          "value": ":root {\n  --color-1: hsl(215, 70%, 52%);\n  --color-2: hsl(288, 70%, 52%);\n  --color-3: hsl(151, 70%, 52%);\n  --color-4: hsl(104, 70%, 52%);\n  --speed: 2s;\n}\n.loader {\n  animation: rotate var(--speed) infinite;\n  height: 50px;\n  width: 50px;\n}\n\n.loader:before,\n.loader:after {\n  border-radius: 50%;\n  content: '';\n  display: block;\n  height: 20px;\n  width: 20px;\n}\n.loader:before {\n  animation: ball1 1s infinite;\n  background-color: var(--color-3);\n  box-shadow: 30px 0 0 var(--color-1);\n  margin-bottom: 10px;\n}\n.loader:after {\n  animation: ball2 1s infinite;\n  background-color: var(--color-4);\n  box-shadow: 30px 0 0 var(--color-2);\n}\n\n@keyframes rotate {\n  0% {\n    -webkit-transform: rotate(0deg) scale(0.8);\n    -moz-transform: rotate(0deg) scale(0.8);\n  }\n  50% {\n    -webkit-transform: rotate(360deg) scale(1.2);\n    -moz-transform: rotate(360deg) scale(1.2);\n  }\n  100% {\n    -webkit-transform: rotate(720deg) scale(0.8);\n    -moz-transform: rotate(720deg) scale(0.8);\n  }\n}\n\n@keyframes ball1 {\n  0% {\n    box-shadow: 30px 0 0 var(--color-1);\n  }\n  50% {\n    box-shadow: 0 0 0 var(--color-1);\n    margin-bottom: 0;\n    -webkit-transform: translate(15px, 15px);\n    -moz-transform: translate(15px, 15px);\n  }\n  100% {\n    box-shadow: 30px 0 0 var(--color-1);\n    margin-bottom: 10px;\n  }\n}\n\n@keyframes ball2 {\n  0% {\n    box-shadow: 30px 0 0 var(--color-2);\n  }\n  50% {\n    box-shadow: 0 0 0 var(--color-2);\n    margin-top: -20px;\n    -webkit-transform: translate(15px, 15px);\n    -moz-transform: translate(15px, 15px);\n  }\n  100% {\n    box-shadow: 30px 0 0 var(--color-2);\n    margin-top: 0;\n  }\n}"
+        }
+      ],
+      "id": "0jbS33Gr",
+      "createdAt": 1661437850799,
+      "updatedAt": 1661438090436
+    },
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "0_jBleIO",
+      "tagsIds": [],
+      "description": null,
+      "name": "牛顿摇篮",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "html",
+          "value": "<div class=\"newtons-cradle\">\n  <div class=\"newtons-cradle__dot\"></div>\n  <div class=\"newtons-cradle__dot\"></div>\n  <div class=\"newtons-cradle__dot\"></div>\n  <div class=\"newtons-cradle__dot\"></div>\n</div>"
+        },
+        {
+          "label": "子片段 2",
+          "language": "css",
+          "value": ".newtons-cradle {\n  --uib-size: 50px;\n  --uib-speed: 1.2s;\n  --uib-color: #474554;\n  position: relative;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: var(--uib-size);\n  height: var(--uib-size);\n}\n\n.newtons-cradle__dot {\n  position: relative;\n  display: flex;\n  align-items: center;\n  height: 100%;\n  width: 25%;\n  transform-origin: center top;\n}\n\n.newtons-cradle__dot::after {\n  content: '';\n  display: block;\n  width: 100%;\n  height: 25%;\n  border-radius: 50%;\n  background-color: var(--uib-color);\n}\n\n.newtons-cradle__dot:first-child {\n  animation: swing var(--uib-speed) linear infinite;\n}\n\n.newtons-cradle__dot:last-child {\n  animation: swing2 var(--uib-speed) linear infinite;\n}\n\n@keyframes swing {\n  0% {\n    transform: rotate(0deg);\n    animation-timing-function: ease-out;\n  }\n\n  25% {\n    transform: rotate(70deg);\n    animation-timing-function: ease-in;\n  }\n\n  50% {\n    transform: rotate(0deg);\n    animation-timing-function: linear;\n  }\n}\n\n@keyframes swing2 {\n  0% {\n    transform: rotate(0deg);\n    animation-timing-function: linear;\n  }\n\n  50% {\n    transform: rotate(0deg);\n    animation-timing-function: ease-out;\n  }\n\n  75% {\n    transform: rotate(-70deg);\n    animation-timing-function: ease-in;\n  }\n}"
+        }
+      ],
+      "id": "vSvUdOw1",
+      "createdAt": 1661438167790,
+      "updatedAt": 1661438218413
+    },
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "0_jBleIO",
+      "tagsIds": [],
+      "description": null,
+      "name": "loading",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "html",
+          "value": "<div class=\"loading\">\n  <span></span>\n  <span></span>\n  <span></span>\n  <span></span>\n  <span></span>\n</div>"
+        },
+        {
+          "label": "子片段 2",
+          "language": "css",
+          "value": ".loading {\n  --speed-of-animation: 0.9s;\n  --gap: 6px;\n  --first-color: #4c86f9;\n  --second-color: #49a84c;\n  --third-color: #f6bb02;\n  --fourth-color: #f6bb02;\n  --fifth-color: #2196f3;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 100px;\n  gap: 6px;\n  height: 100px;\n}\n\n.loading span {\n  width: 4px;\n  height: 50px;\n  background: var(--first-color);\n  animation: scale var(--speed-of-animation) ease-in-out infinite;\n}\n\n.loading span:nth-child(2) {\n  background: var(--second-color);\n  animation-delay: -0.8s;\n}\n\n.loading span:nth-child(3) {\n  background: var(--third-color);\n  animation-delay: -0.7s;\n}\n\n.loading span:nth-child(4) {\n  background: var(--fourth-color);\n  animation-delay: -0.6s;\n}\n\n.loading span:nth-child(5) {\n  background: var(--fifth-color);\n  animation-delay: -0.5s;\n}\n\n@keyframes scale {\n  0%,\n  40%,\n  100% {\n    transform: scaleY(0.05);\n  }\n\n  20% {\n    transform: scaleY(1);\n  }\n}"
+        }
+      ],
+      "id": "s8z8X0mz",
+      "createdAt": 1661438270121,
+      "updatedAt": 1661438481575
+    },
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "0_jBleIO",
+      "tagsIds": [],
+      "description": null,
+      "name": "loading",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "html",
+          "value": "<svg viewBox=\"25 25 50 50\">\n  <circle r=\"20\" cy=\"50\" cx=\"50\"></circle>\n</svg>"
+        },
+        {
+          "label": "子片段 2",
+          "language": "css",
+          "value": "svg {\n  width: 3.25em;\n  transform-origin: center;\n  animation: rotate4 2s linear infinite;\n}\n\ncircle {\n  fill: none;\n  stroke: hsl(214, 97%, 59%);\n  stroke-width: 2;\n  stroke-dasharray: 1, 200;\n  stroke-dashoffset: 0;\n  stroke-linecap: round;\n  animation: dash4 1.5s ease-in-out infinite;\n}\n\n@keyframes rotate4 {\n  100% {\n    transform: rotate(360deg);\n  }\n}\n\n@keyframes dash4 {\n  0% {\n    stroke-dasharray: 1, 200;\n    stroke-dashoffset: 0;\n  }\n\n  50% {\n    stroke-dasharray: 90, 200;\n    stroke-dashoffset: -35px;\n  }\n\n  100% {\n    stroke-dashoffset: -125px;\n  }\n}"
+        }
+      ],
+      "id": "QrQyIGFS",
+      "createdAt": 1661438296883,
+      "updatedAt": 1661438474767
+    },
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "0_jBleIO",
+      "tagsIds": [],
+      "description": null,
+      "name": "loading",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "html",
+          "value": "<svg\n  xmlns=\"http://www.w3.org/2000/svg\"\n  height=\"128px\"\n  width=\"128px\"\n  viewBox=\"0 0 128 128\"\n  class=\"pl\"\n>\n  <defs>\n    <linearGradient y2=\"1\" x2=\"0\" y1=\"0\" x1=\"0\" id=\"pl-grad\">\n      <stop stop-color=\"hsl(193,90%,55%)\" offset=\"0%\"></stop>\n      <stop stop-color=\"hsl(223,90%,55%)\" offset=\"100%\"></stop>\n    </linearGradient>\n  </defs>\n  <circle\n    stroke-linecap=\"round\"\n    stroke-width=\"16\"\n    stroke=\"hsla(0,10%,10%,0.1)\"\n    fill=\"none\"\n    cy=\"64\"\n    cx=\"64\"\n    r=\"56\"\n    class=\"pl__ring\"\n  ></circle>\n  <path\n    stroke-dashoffset=\"10\"\n    stroke-dasharray=\"44 1111\"\n    stroke-linejoin=\"round\"\n    stroke-linecap=\"round\"\n    stroke-width=\"16\"\n    stroke=\"url(#pl-grad)\"\n    fill=\"none\"\n    d=\"M92,15.492S78.194,4.967,66.743,16.887c-17.231,17.938-28.26,96.974-28.26,96.974L119.85,59.892l-99-31.588,57.528,89.832L97.8,19.349,13.636,88.51l89.012,16.015S81.908,38.332,66.1,22.337C50.114,6.156,36,15.492,36,15.492a56,56,0,1,0,56,0Z\"\n    class=\"pl__worm\"\n  ></path>\n</svg>"
+        },
+        {
+          "label": "子片段 2",
+          "language": "css",
+          "value": ".pl,\n.pl__worm {\n  animation-duration: 4s;\n  animation-iteration-count: infinite;\n}\n\n.pl {\n  animation-name: bump5;\n  animation-timing-function: linear;\n  width: 5em;\n  height: 5em;\n}\n\n.pl__ring {\n  stroke: hsla(var(--hue), 10%, 10%, 0.1);\n  transition: stroke 0.3s;\n}\n\n.pl__worm {\n  animation-name: worm5;\n  animation-timing-function: cubic-bezier(0.42, 0.17, 0.75, 0.83);\n}\n\n/* Animations */\n@keyframes bump5 {\n  from,\n  42%,\n  46%,\n  51%,\n  55%,\n  59%,\n  63%,\n  67%,\n  71%,\n  74%,\n  78%,\n  81%,\n  85%,\n  88%,\n  92%,\n  to {\n    transform: translate(0, 0);\n  }\n\n  44% {\n    transform: translate(1.33%, 6.75%);\n  }\n\n  53% {\n    transform: translate(-16.67%, -0.54%);\n  }\n\n  61% {\n    transform: translate(3.66%, -2.46%);\n  }\n\n  69% {\n    transform: translate(-0.59%, 15.27%);\n  }\n\n  76% {\n    transform: translate(-1.92%, -4.68%);\n  }\n\n  83% {\n    transform: translate(9.38%, 0.96%);\n  }\n\n  90% {\n    transform: translate(-4.55%, 1.98%);\n  }\n}\n\n@keyframes worm5 {\n  from {\n    stroke-dashoffset: 10;\n  }\n\n  25% {\n    stroke-dashoffset: 295;\n  }\n\n  to {\n    stroke-dashoffset: 1165;\n  }\n}"
+        }
+      ],
+      "id": "kgiEgxre",
+      "createdAt": 1661438328472,
+      "updatedAt": 1661438478854
+    },
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "0_jBleIO",
+      "tagsIds": [],
+      "description": null,
+      "name": "loading",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "html",
+          "value": "<div class=\"spinner\">\n  <div></div>\n  <div></div>\n  <div></div>\n  <div></div>\n  <div></div>\n  <div></div>\n</div>"
+        },
+        {
+          "label": "子片段 2",
+          "language": "css",
+          "value": ".spinner {\n  width: 44px;\n  height: 44px;\n  animation: spinner-y0fdc1 2s infinite ease;\n  transform-style: preserve-3d;\n}\n\n.spinner > div {\n  background-color: rgba(0, 77, 255, 0.2);\n  height: 100%;\n  position: absolute;\n  width: 100%;\n  border: 2px solid #004dff;\n}\n\n.spinner div:nth-of-type(1) {\n  transform: translateZ(-22px) rotateY(180deg);\n}\n\n.spinner div:nth-of-type(2) {\n  transform: rotateY(-270deg) translateX(50%);\n  transform-origin: top right;\n}\n\n.spinner div:nth-of-type(3) {\n  transform: rotateY(270deg) translateX(-50%);\n  transform-origin: center left;\n}\n\n.spinner div:nth-of-type(4) {\n  transform: rotateX(90deg) translateY(-50%);\n  transform-origin: top center;\n}\n\n.spinner div:nth-of-type(5) {\n  transform: rotateX(-90deg) translateY(50%);\n  transform-origin: bottom center;\n}\n\n.spinner div:nth-of-type(6) {\n  transform: translateZ(22px);\n}\n\n@keyframes spinner-y0fdc1 {\n  0% {\n    transform: rotate(45deg) rotateX(-25deg) rotateY(25deg);\n  }\n\n  50% {\n    transform: rotate(45deg) rotateX(-385deg) rotateY(25deg);\n  }\n\n  100% {\n    transform: rotate(45deg) rotateX(-385deg) rotateY(385deg);\n  }\n}"
+        }
+      ],
+      "id": "xenTXWNr",
+      "createdAt": 1661438427265,
+      "updatedAt": 1661438483292
+    },
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "K3nXnVje",
+      "tagsIds": [],
+      "description": null,
+      "name": "填充数组",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "javascript",
+          "value": "const withLength = n => new Array(n).fill('')"
+        }
+      ],
+      "id": "AjfWiSfE",
+      "createdAt": 1661439523139,
+      "updatedAt": 1661446111015
+    },
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "K3nXnVje",
+      "tagsIds": [],
+      "description": null,
+      "name": "数组去重",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "javascript",
+          "value": "/**\n * 数组去重\n * @param {*} arr\n */\nexport function uniqueArray(arr) {\n    if (!Array.isArray(arr)) {\n        throw new Error('The first parameter must be an array')\n    }\n    if (arr.length == 1) {\n        return arr\n    }\n    return [...new Set(arr)]\n}"
+        }
+      ],
+      "id": "4eoLxKve",
+      "createdAt": 1661439573368,
+      "updatedAt": 1661446131063
+    },
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "K3nXnVje",
+      "tagsIds": [],
+      "description": null,
+      "name": "取数组中随机成员",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "javascript",
+          "value": "const random = arr => arr[Math.floor(Math.random() * arr.length)]"
+        }
+      ],
+      "id": "GDmBgq_J",
+      "createdAt": 1661439603946,
+      "updatedAt": 1661446107708
+    },
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "K3nXnVje",
+      "tagsIds": [],
+      "description": null,
+      "name": "取两数组交集",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "javascript",
+          "value": "const intersection = (a, b) => {\n  const s = new Set(b)\n  return a.filter(i => s.has(i))\n}"
+        }
+      ],
+      "id": "zK0ssdmm",
+      "createdAt": 1661439836218,
+      "updatedAt": 1661446105794
+    },
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "MUTzT3eM",
+      "tagsIds": [],
+      "description": null,
+      "name": "检查父元素是否包含子元素",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "javascript",
+          "value": "const elementContains = (parent, child) =>\n  parent !== child && parent.contains(child)"
+        }
+      ],
+      "id": "xuNnP0fL",
+      "createdAt": 1661439935388,
+      "updatedAt": 1661440020416
+    },
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "-by66YAM",
+      "tagsIds": [],
+      "description": null,
+      "name": "取字节长度",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "javascript",
+          "value": "const byteSize = str => new Blob([str]).size"
+        }
+      ],
+      "id": "Jk876g73",
+      "createdAt": 1661440086360,
+      "updatedAt": 1661446136297
+    },
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "-by66YAM",
+      "tagsIds": [],
+      "description": null,
+      "name": "大写每个单词",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "javascript",
+          "value": "const capitalizeEveryWord = str =>\n  str.replace(/\\b[a-z]/g, char => char.toUpperCase())\n"
+        }
+      ],
+      "id": "Bfu20f2-",
+      "createdAt": 1661440124200,
+      "updatedAt": 1661446138533
+    },
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "-by66YAM",
+      "tagsIds": [],
+      "description": null,
+      "name": "首字母小写",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "javascript",
+          "value": "const decapitalize = ([first, ...rest]) => first.toLowerCase() + rest.join('')"
+        }
+      ],
+      "id": "Al9vmtlX",
+      "createdAt": 1661440196043,
+      "updatedAt": 1661446140325
+    },
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "-by66YAM",
+      "tagsIds": [],
+      "description": null,
+      "name": "首字母大写",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "javascript",
+          "value": "const capitalize = ([first, ...rest]) => first.toUpperCase() + rest.join('')"
+        }
+      ],
+      "id": "QaToYgBN",
+      "createdAt": 1661440209716,
+      "updatedAt": 1661446141994
+    },
+    {
+      "isDeleted": true,
+      "isFavorites": false,
+      "folderId": "",
+      "tagsIds": [],
+      "description": null,
+      "name": "检查全大写",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "plain_text",
+          "value": ""
+        }
+      ],
+      "id": "CNv8OwJJ",
+      "createdAt": 1661440262804,
+      "updatedAt": 1661440285045
+    },
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "-by66YAM",
+      "tagsIds": [],
+      "description": null,
+      "name": "检查全大写",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "javascript",
+          "value": "const isUpperCase = str => str === str.toUpperCase()"
+        }
+      ],
+      "id": "drDz60Xk",
+      "createdAt": 1661440288217,
+      "updatedAt": 1661446143990
+    },
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "-by66YAM",
+      "tagsIds": [],
+      "description": null,
+      "name": "检查全小写",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "javascript",
+          "value": "const isLowerCase = str => str === str.toLowerCase()"
+        }
+      ],
+      "id": "6NOFUIPm",
+      "createdAt": 1661440299497,
+      "updatedAt": 1661446145546
+    },
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "-by66YAM",
+      "tagsIds": [],
+      "description": null,
+      "name": "反转字符串",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "javascript",
+          "value": "const reverseString = str => [...str].reverse().join('')"
+        }
+      ],
+      "id": "M9eggcxn",
+      "createdAt": 1661440312241,
+      "updatedAt": 1661446147224
+    },
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "5VFeR9JD",
+      "tagsIds": [],
+      "description": null,
+      "name": "获取地址栏的query值",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "javascript",
+          "value": "let type = new URLSearchParams(location.search).get('type');"
+        }
+      ],
+      "id": "1KxwDKTp",
+      "createdAt": 1661440565143,
+      "updatedAt": 1661440586470
+    },
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "5VFeR9JD",
+      "tagsIds": [],
+      "description": null,
+      "name": "对象判空",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "javascript",
+          "value": "Object.keys({key: 1}).length  // 1"
+        }
+      ],
+      "id": "P02w_zgA",
+      "createdAt": 1661440643197,
+      "updatedAt": 1661440649513
+    },
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "5VFeR9JD",
+      "tagsIds": [],
+      "description": null,
+      "name": "下载文件 ",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "javascript",
+          "value": "//下载一个链接 \nfunction download(link, name) {\n    if(!name){\n            name=link.slice(link.lastIndexOf('/') + 1)\n    }\n    let eleLink = document.createElement('a')\n    eleLink.download = name\n    eleLink.style.display = 'none'\n    eleLink.href = link\n    document.body.appendChild(eleLink)\n    eleLink.click()\n    document.body.removeChild(eleLink)\n}\n//下载excel\ndownload('http://111.229.14.189/file/1.xlsx')"
+        }
+      ],
+      "id": "7xMGdmkV",
+      "createdAt": 1661441061418,
+      "updatedAt": 1661441085309
+    },
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "5VFeR9JD",
+      "tagsIds": [],
+      "description": null,
+      "name": "下载自定义内容",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "javascript",
+          "value": "/**\n * 浏览器下载静态文件\n * @param {String} name 文件名\n * @param {String} content 文件内容\n */\nfunction downloadFile(name, content) {\n    if (typeof name == 'undefined') {\n        throw new Error('The first parameter name is a must')\n    }\n    if (typeof content == 'undefined') {\n        throw new Error('The second parameter content is a must')\n    }\n    if (!(content instanceof Blob)) {\n        content = new Blob([content])\n    }\n    const link = URL.createObjectURL(content)\n    download(link, name)\n}\n//下载一个链接\nfunction download(link, name) {\n    if (!name) {//如果没有提供名字，从给的Link中截取最后一坨\n        name =  link.slice(link.lastIndexOf('/') + 1)\n    }\n    let eleLink = document.createElement('a')\n    eleLink.download = name\n    eleLink.style.display = 'none'\n    eleLink.href = link\n    document.body.appendChild(eleLink)\n    eleLink.click()\n    document.body.removeChild(eleLink)\n}\n// downloadFile('1.txt','lalalallalalla')\n// downloadFile('1.json',JSON.stringify({name:'hahahha'}))"
+        }
+      ],
+      "id": "jyhiiFwN",
+      "createdAt": 1661441170429,
+      "updatedAt": 1661441221050
+    },
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "5VFeR9JD",
+      "tagsIds": [],
+      "description": "图片、pdf等文件，浏览器会默认执行预览，不能调用download方法进行下载，需要先把图片、pdf等文件转成blob，再调用download方法进行下载，转换的方式是使用axios请求对应的链接",
+      "name": "下载图片、pdf",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "javascript",
+          "value": "import axios from 'axios'\n//提供一个link，完成文件下载，link可以是  http://xxx.com/xxx.xls\nfunction downloadByLink(link,fileName){\n    axios.request({\n        url: link,\n        responseType: 'blob' //关键代码，让axios把响应改成blob\n    }).then(res => {\n\tconst link=URL.createObjectURL(res.data)\n        download(link, fileName)\n    })\n\n}"
+        }
+      ],
+      "id": "YYQ9wxOz",
+      "createdAt": 1661441267726,
+      "updatedAt": 1661444490915
+    },
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "5VFeR9JD",
+      "tagsIds": [],
+      "description": null,
+      "name": "防抖",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "javascript",
+          "value": "/**\n *\n * @param {*} func 要进行debouce的函数\n * @param {*} wait 等待时间,默认500ms\n * @param {*} immediate 是否立即执行\n */\nexport function debounce(func, wait=500, immediate=false) {\n    var timeout\n    return function() {\n        var context = this\n        var args = arguments\n\n        if (timeout) clearTimeout(timeout)\n        if (immediate) {\n            // 如果已经执行过，不再执行\n            var callNow = !timeout\n            timeout = setTimeout(function() {\n                timeout = null\n            }, wait)\n            if (callNow) func.apply(context, args)\n        } else {\n            timeout = setTimeout(function() {\n                func.apply(context, args)\n            }, wait)\n        }\n    }\n}"
+        }
+      ],
+      "id": "NC7Vkg-u",
+      "createdAt": 1661441320045,
+      "updatedAt": 1661441328876
+    },
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "5VFeR9JD",
+      "tagsIds": [],
+      "description": "options\n \nleading，函数在每个等待时延的开始被调用，默认值为false\ntrailing，函数在每个等待时延的结束被调用，默认值是true\n可以根据不同的值来设置不同的效果：\n\nleading-false，trailing-true：默认情况，即在延时结束后才会调用函数\nleading-true，trailing-true：在延时开始时就调用，延时结束后也会调用\nleading-true, trailing-false：只在延时开始时调用",
+      "name": "节流",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "javascript",
+          "value": "/**\n * 节流，多次触发，间隔时间段执行\n * @param {Function} func\n * @param {Int} wait\n * @param {Object} options\n */\nexport function throttle(func, wait=500, options) {\n    //container.onmousemove = throttle(getUserAction, 1000);\n    var timeout, context, args\n    var previous = 0\n    if (!options) options = {leading:false,trailing:true}\n\n    var later = function() {\n        previous = options.leading === false ? 0 : new Date().getTime()\n        timeout = null\n        func.apply(context, args)\n        if (!timeout) context = args = null\n    }\n\n    var throttled = function() {\n        var now = new Date().getTime()\n        if (!previous && options.leading === false) previous = now\n        var remaining = wait - (now - previous)\n        context = this\n        args = arguments\n        if (remaining <= 0 || remaining > wait) {\n            if (timeout) {\n                clearTimeout(timeout)\n                timeout = null\n            }\n            previous = now\n            func.apply(context, args)\n            if (!timeout) context = args = null\n        } else if (!timeout && options.trailing !== false) {\n            timeout = setTimeout(later, remaining)\n        }\n    }\n    return throttled\n}"
+        }
+      ],
+      "id": "yUQcB--d",
+      "createdAt": 1661441353950,
+      "updatedAt": 1661444468443
+    },
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "5VFeR9JD",
+      "tagsIds": [],
+      "description": null,
+      "name": "复制内容到剪贴板",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "javascript",
+          "value": "copyPersonURL(content) {\n    let that = this\n    if (window.ClipboardData) {\n        window.clipboardData.setData('text', content)\n        this.$message.success('链接复制成功')\n    } else {\n        ;(function (content) {\n            document.oncopy = function (e) {\n                e.clipboardData.setData('text', content)\n                e.preventDefault()\n                document.oncopy = null\n                that.$message.success('链接复制成功')\n            }\n        })(content)\n        document.execCommand('Copy')\n    }\n},"
+        }
+      ],
+      "id": "7WEpHSuD",
+      "createdAt": 1661442854146,
+      "updatedAt": 1661444666249
+    },
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "5VFeR9JD",
+      "tagsIds": [],
+      "description": null,
+      "name": "uuid",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "javascript",
+          "value": "/**\n * 生成随机id\n * @param {*} length\n * @param {*} chars\n */\nexport function uuid(length=8, chars='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ') {\n    let result = ''\n    for (let i = length; i > 0; --i)\n        result += chars[Math.floor(Math.random() * chars.length)]\n    return result\n}"
+        }
+      ],
+      "id": "sN8V9R4v",
+      "createdAt": 1661442963798,
+      "updatedAt": 1661442973609
+    },
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "5VFeR9JD",
+      "tagsIds": [],
+      "description": "只拷贝对象、数组以及对象数组，对于大部分场景已经足够",
+      "name": "简单的深拷贝",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "javascript",
+          "value": "/**\n *深拷贝\n * @export\n * @param {*} obj\n * @returns\n */\nexport function deepCopy(obj) {\n    if (typeof obj != 'object') {\n        return obj\n    }\n    if (obj == null) {\n        return obj\n    }\n    return JSON.parse(JSON.stringify(obj))\n}"
+        }
+      ],
+      "id": "okJmdLFo",
+      "createdAt": 1661442988363,
+      "updatedAt": 1661444427197
+    },
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "5VFeR9JD",
+      "tagsIds": [],
+      "description": "//使用方式：\nlet req={\n    file:xxx,\n    userId:1,\n    phone:'15198763636',\n    //...\n}\nfetch(getFormData(req))",
+      "name": "对象转化为FormData对象",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "javascript",
+          "value": "/**\n * 对象转化为formdata\n * @param {Object} object\n */\n\n export function getFormData(object) {\n    const formData = new FormData()\n    Object.keys(object).forEach(key => {\n        const value = object[key]\n        if (Array.isArray(value)) {\n            value.forEach((subValue, i) =>\n                formData.append(key + `[${i}]`, subValue)\n            )\n        } else {\n            formData.append(key, object[key])\n        }\n    })\n    return formData\n}\n"
+        }
+      ],
+      "id": "qi2VwPSn",
+      "createdAt": 1661443094063,
+      "updatedAt": 1661444406979
+    },
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "JAWHL2B3",
+      "tagsIds": [],
+      "description": null,
+      "name": "改变输入框光标的颜色",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "css",
+          "value": "caret-color: #0ff;"
+        }
+      ],
+      "id": "cRLG8Dx1",
+      "createdAt": 1661443908922,
+      "updatedAt": 1661443918685
+    },
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "JAWHL2B3",
+      "tagsIds": [],
+      "description": null,
+      "name": "解决IOS滚动条卡顿",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "css",
+          "value": ".box::-webkit-scrollbar {\n  display: none;\n}"
+        }
+      ],
+      "id": "czXgHu73",
+      "createdAt": 1661443930511,
+      "updatedAt": 1661443934371
+    },
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "JAWHL2B3",
+      "tagsIds": [],
+      "description": null,
+      "name": "webkit下修改滚动条样式",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "css",
+          "value": "::-webkit-scrollbar 滚动条整体部分\n::-webkit-scrollbar-button 滚动条两端的按钮\n:-webkit-scrollbar-track 外层轨道\n::-webkit-scrollbar-track-piece 内层滚动区\n::-webkit-scrollbar-thumb 滚动的滑块\n::-webkit-scrollbar-corner 边角\n::-webkit-resizer 定义右下角拖动块的样式\n\n::-webkit-scrollbar {\n  width: 7px;\n  height: 5px;\n  border-radius:15px;\n  -webkit-border-radius:  15px;\n}\n::-webkit-scrollbar-track-piece {\n  background-color: #fff;\n  border-radius:15px;\n  -webkit-border-radius:  15px;\n}\n::-webkit-scrollbar-thumb:vertical {\n  height: 5px;\n  background-color: rgba(144, 147, 153, 0.5);\n  border-radius: 15px;\n  -webkit-border-radius:  15px;\n}\n::-webkit-scrollbar-thumb:horizontal {\n  width: 7px;\n  background-color: rgba(144, 147, 153, 0.5);\n  border-radius:  15px;  \n  -webkit-border-radius: 15px;\n}"
+        }
+      ],
+      "id": "TVfKxUnS",
+      "createdAt": 1661443940846,
+      "updatedAt": 1661444735916
+    },
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "JAWHL2B3",
+      "tagsIds": [],
+      "description": null,
+      "name": ":not() 解决最后一个元素特殊样式",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "css",
+          "value": ".nav li:not(:last-child) {    \n    border-right: 1px solid #666;  \n}"
+        }
+      ],
+      "id": "yLk7-26T",
+      "createdAt": 1661444081592,
+      "updatedAt": 1661444086960
+    },
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "JAWHL2B3",
+      "tagsIds": [],
+      "description": null,
+      "name": "禁止文字选中",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "css",
+          "value": "*:not(input,textarea) {\n  -webkit-user-select:none;\n  user-select:none;\n  -webkit-tap-highlight-color:rgba(255,0,0,0);\n}"
+        }
+      ],
+      "id": "pr8cqYwX",
+      "createdAt": 1661444117800,
+      "updatedAt": 1661444122322
+    },
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "JAWHL2B3",
+      "tagsIds": [],
+      "description": null,
+      "name": "显示链接名称的同时并显示当前URL",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "css",
+          "value": "<a href=\"http://www.baidu.com\">baidu</a>\n<style>\na::after {\n  content: \" (\" attr(href) \")\";\n}\n</style>"
+        }
+      ],
+      "id": "KMNd-AAG",
+      "createdAt": 1661444198895,
+      "updatedAt": 1661444202855
+    },
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "JAWHL2B3",
+      "tagsIds": [],
+      "description": null,
+      "name": "a标签没有文本值，但 href 属性有链接的时候显示链接",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "css",
+          "value": "a[href^=\"http\"]:empty::before {\n  content: attr(href);\n}"
+        }
+      ],
+      "id": "mFpeFg3S",
+      "createdAt": 1661444215010,
+      "updatedAt": 1661444219423
+    },
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "JAWHL2B3",
+      "tagsIds": [],
+      "description": null,
+      "name": "自定义选中文本颜色",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "css",
+          "value": "::selection {\n     background: #00ff00;\n}\n ::-moz-selection {\n     background: #00ff00;\n}\n ::-webkit-selection {\n     background: #00ff00;\n}"
+        }
+      ],
+      "id": "vjACTzw-",
+      "createdAt": 1661444237683,
+      "updatedAt": 1661444240991
+    },
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "JAWHL2B3",
+      "tagsIds": [],
+      "description": null,
+      "name": "禁用鼠标事件",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "css",
+          "value": ".disabled { \n  pointer-events: none; \n}"
+        }
+      ],
+      "id": "dhxOdh4F",
+      "createdAt": 1661444247815,
+      "updatedAt": 1661444252619
+    },
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "5VFeR9JD",
+      "tagsIds": [],
+      "description": "{name:xxx,age:11} -> name=xxx&age=11",
+      "name": "对象转成urlencode",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "javascript",
+          "value": "/**\n * 对象转化为url参数\n * @param {*} obj\n */\nexport function getParams(obj) {\n    return Object.keys(obj)\n        .map(function(k) {\n            return encodeURIComponent(k) + '=' + encodeURIComponent(obj[k])\n        })\n        .join('&')\n}\n"
+        }
+      ],
+      "id": "3hG788FT",
+      "createdAt": 1661444331317,
+      "updatedAt": 1661444394681
+    },
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "5VFeR9JD",
+      "tagsIds": [],
+      "description": "使用方式：getObjByUrl('a=b&name=xxx%20djdj')",
+      "name": "url编码转成json格式",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "javascript",
+          "value": "function getObjByUrl(str){\n  return   Object.fromEntries(new URLSearchParams(str));\n}\n"
+        }
+      ],
+      "id": "sxXoJxUM",
+      "createdAt": 1661444363944,
+      "updatedAt": 1661444381189
+    },
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "MUTzT3eM",
+      "tagsIds": [],
+      "description": null,
+      "name": "平滑回到顶部",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "javascript",
+          "value": "const scrollToTop = () => {\n  const c = document.documentElement.scrollTop || document.body.scrollTop;\n  if (c > 0) {\n    window.requestAnimationFrame(scrollToTop);\n    window.scrollTo(0, c - c / 8);\n  }\n};"
+        }
+      ],
+      "id": "FaLtn4DY",
+      "createdAt": 1661445154035,
+      "updatedAt": 1661445168892
+    },
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "MUTzT3eM",
+      "tagsIds": [],
+      "description": "smoothScroll(\"#fooBar\");",
+      "name": "平滑滚动到指定元素",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "javascript",
+          "value": "const smoothScroll = (element) =>\n  document.querySelector(element).scrollIntoView({\n    behavior: \"smooth\",\n  });\n"
+        }
+      ],
+      "id": "NOR_g-UT",
+      "createdAt": 1661445180617,
+      "updatedAt": 1661445198646
+    },
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "cZdjAY4m",
+      "tagsIds": [],
+      "description": null,
+      "name": "快速排序",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "javascript",
+          "value": "const quickSort = (arr) => {\n  const a = [...arr];\n  if (a.length < 2) return a;\n  const pivotIndex = Math.floor(arr.length / 2);\n  const pivot = a[pivotIndex];\n  const [lo, hi] = a.reduce(\n    (acc, val, i) => {\n      if (val < pivot || (val === pivot && i != pivotIndex)) {\n        acc[0].push(val);\n      } else if (val > pivot) {\n        acc[1].push(val);\n      }\n      return acc;\n    },\n    [[], []]\n  );\n  return [...quickSort(lo), pivot, ...quickSort(hi)];\n};"
+        }
+      ],
+      "id": "sjITNHQp",
+      "createdAt": 1661445412970,
+      "updatedAt": 1661445429077
+    },
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "cZdjAY4m",
+      "tagsIds": [],
+      "description": null,
+      "name": "选择排序",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "javascript",
+          "value": "const selectionSort = (arr) => {\n  const a = [...arr];\n  for (let i = 0; i < a.length; i++) {\n    const min = a\n      .slice(i + 1)\n      .reduce((acc, val, j) => (val < a[acc] ? j + i + 1 : acc), i);\n    if (min !== i) [a[i], a[min]] = [a[min], a[i]];\n  }\n  return a;\n};"
+        }
+      ],
+      "id": "ZluXR3LT",
+      "createdAt": 1661445440099,
+      "updatedAt": 1661445447448
+    },
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "cZdjAY4m",
+      "tagsIds": [],
+      "description": null,
+      "name": "插入排序",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "javascript",
+          "value": "const insertionSort = (arr) =>\n  arr.reduce((acc, x) => {\n    if (!acc.length) return [x];\n    acc.some((y, j) => {\n      if (x <= y) {\n        acc.splice(j, 0, x);\n        return true;\n      }\n      if (x > y && j === acc.length - 1) {\n        acc.splice(j + 1, 0, x);\n        return true;\n      }\n      return false;\n    });\n    return acc;\n  }, []);"
+        }
+      ],
+      "id": "oZkZ-m95",
+      "createdAt": 1661445448922,
+      "updatedAt": 1661445460770
+    },
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "cZdjAY4m",
+      "tagsIds": [],
+      "description": null,
+      "name": "冒泡排序",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "javascript",
+          "value": "const bubbleSort = (arr) => {\n  let swapped = false;\n  const a = [...arr];\n  for (let i = 1; i < a.length; i++) {\n    swapped = false;\n    for (let j = 0; j < a.length - i; j++) {\n      if (a[j + 1] < a[j]) {\n        [a[j], a[j + 1]] = [a[j + 1], a[j]];\n        swapped = true;\n      }\n    }\n    if (!swapped) return a;\n  }\n  return a;\n};"
+        }
+      ],
+      "id": "kc4HTut3",
+      "createdAt": 1661445464933,
+      "updatedAt": 1661445471188
+    },
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "cZdjAY4m",
+      "tagsIds": [],
+      "description": null,
+      "name": "归并排序",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "javascript",
+          "value": "const mergeSort = (arr) => {\n  if (arr.length < 2) return arr;\n  const mid = Math.floor(arr.length / 2);\n  const l = mergeSort(arr.slice(0, mid));\n  const r = mergeSort(arr.slice(mid, arr.length));\n  return Array.from({ length: l.length + r.length }, () => {\n    if (!l.length) return r.shift();\n    else if (!r.length) return l.shift();\n    else return l[0] > r[0] ? r.shift() : l.shift();\n  });\n};"
+        }
+      ],
+      "id": "eq0kzFhH",
+      "createdAt": 1661445475035,
+      "updatedAt": 1661445480212
+    },
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "cZdjAY4m",
+      "tagsIds": [],
+      "description": null,
+      "name": "桶排序",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "javascript",
+          "value": "const bucketSort = (arr, size = 5) => {\n  const min = Math.min(...arr);\n  const max = Math.max(...arr);\n  const buckets = Array.from(\n    { length: Math.floor((max - min) / size) + 1 },\n    () => []\n  );\n  arr.forEach((val) => {\n    buckets[Math.floor((val - min) / size)].push(val);\n  });\n  return buckets.reduce((acc, b) => [...acc, ...b.sort((a, b) => a - b)], []);\n};"
+        }
+      ],
+      "id": "_jaTfkXR",
+      "createdAt": 1661445485501,
+      "updatedAt": 1661445503177
+    },
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "cZdjAY4m",
+      "tagsIds": [],
+      "description": null,
+      "name": "二分搜索",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "javascript",
+          "value": "const binarySearch = (arr, item) => {\n  let l = 0,\n    r = arr.length - 1;\n  while (l <= r) {\n    const mid = Math.floor((l + r) / 2);\n    const guess = arr[mid];\n    if (guess === item) return mid;\n    if (guess > item) r = mid - 1;\n    else l = mid + 1;\n  }\n  return -1;\n};"
+        }
+      ],
+      "id": "jJ9amJoH",
+      "createdAt": 1661445504455,
+      "updatedAt": 1661445517502
+    },
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "K3nXnVje",
+      "tagsIds": [],
+      "description": null,
+      "name": "数组随机排序",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "javascript",
+          "value": "const shuffle = arr => arr.sort(() => Math.random() - 0.5);"
+        }
+      ],
+      "id": "pscQPnOJ",
+      "createdAt": 1661445525084,
+      "updatedAt": 1661446755217
+    },
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "PfVxt6qK",
+      "tagsIds": [],
+      "description": null,
+      "name": "sleep-同步",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "javascript",
+          "value": "const sleepSync = (ms) => {\n  const end = new Date().getTime() + ms;\n  while (new Date().getTime() < end) {\n    /* do nothing */\n  }\n};\n\nconst printNums = () => {\n  console.log(1);\n  sleepSync(500);\n  console.log(2);\n  console.log(3);\n};\n\nprintNums(); // Logs: 1, 2, 3 (2 and 3 log after 500ms)"
+        }
+      ],
+      "id": "cxkJOskE",
+      "createdAt": 1661445569883,
+      "updatedAt": 1661445634048
+    },
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "PfVxt6qK",
+      "tagsIds": [],
+      "description": null,
+      "name": "sleep-异步",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "javascript",
+          "value": "const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));\n\nconst printNums = async () => {\n  console.log(1);\n  await sleep(500);\n  console.log(2);\n  console.log(3);\n};\n\nprintNums(); // Logs: 1, 2, 3 (2 and 3 log after 500ms)"
+        }
+      ],
+      "id": "PZrdcvS8",
+      "createdAt": 1661445635509,
+      "updatedAt": 1661445644637
+    },
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "K3nXnVje",
+      "tagsIds": [],
+      "description": null,
+      "name": "计数数组中值的出现次数",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "javascript",
+          "value": "const countOccurrences = (arr, value) => arr.reduce((a, v) => v === value ? a + 1 : a + 0, 0);"
+        }
+      ],
+      "id": "ckDzIdDP",
+      "createdAt": 1661445737388,
+      "updatedAt": 1661446078789
+    },
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "5VFeR9JD",
+      "tagsIds": [],
+      "description": null,
+      "name": "范围内的随机数",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "javascript",
+          "value": "const randomInRange = (min, max) => Math.random() * (max - min) + min;"
+        }
+      ],
+      "id": "doK0X_TD",
+      "createdAt": 1661445796226,
+      "updatedAt": 1661445812168
+    },
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "K3nXnVje",
+      "tagsIds": [],
+      "description": null,
+      "name": "取两数组补集",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "javascript",
+          "value": "const difference = (a, b) => { const s = new Set(b); return a.filter(x => !s.has(x)); };"
+        }
+      ],
+      "id": "jWTZwYo6",
+      "createdAt": 1661446183320,
+      "updatedAt": 1661446226844
+    },
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "bbg1UnNX",
+      "tagsIds": [],
+      "description": null,
+      "name": "前台活跃状态",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "javascript",
+          "value": "const isBrowserTabFocused = () => !document.hidden; "
+        }
+      ],
+      "id": "De1DFRuK",
+      "createdAt": 1661446336641,
+      "updatedAt": 1661446356463
+    },
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "5VFeR9JD",
+      "tagsIds": [],
+      "description": null,
+      "name": "生成随机HEX色值",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "javascript",
+          "value": "const randomHex = () => `#${Math.floor(Math.random() * 0xffffff).toString(16).padEnd(6, \"0\")}`;"
+        }
+      ],
+      "id": "n6-QgjeF",
+      "createdAt": 1661446547563,
+      "updatedAt": 1661446600063
+    },
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "5VFeR9JD",
+      "tagsIds": [],
+      "description": null,
+      "name": "URL转Object",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "javascript",
+          "value": "const getQueryParams = (URL) => {\n  return JSON.parse(\n    `{\"${decodeURI(URL.split('?')[1])\n      .replace(/&/g, '\",\"')\n      .replace(/=/g, '\":\"')}\"}`\n  );\n};"
+        }
+      ],
+      "id": "ysL-Q8yB",
+      "createdAt": 1661446702953,
+      "updatedAt": 1661446736616
+    },
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "-by66YAM",
+      "tagsIds": [],
+      "description": null,
+      "name": "富文本提取纯文字",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "javascript",
+          "value": "getText(str) {\n      return str\n        .replace(/<[^<>]+>/g, \"\")\n        .replace(/&nbsp;/gi, \"\");\n    }"
+        }
+      ],
+      "id": "H2SvegOG",
+      "createdAt": 1661446787038,
+      "updatedAt": 1661446797542
+    },
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "5VFeR9JD",
+      "tagsIds": [],
+      "description": null,
+      "name": "轮询",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "javascript",
+          "value": "// data\npollingST: null,\n// mounted\nthis.polling();\n// methods\npolling() {\n  this.pollingST = setTimeout(() => {\n    console.log(\"轮询了\");\n    this.getList();\n    clearTimeout(this.pollingST);\n    this.polling();\n    // 30秒轮询一次\n  }, 30000);\n},\n// beforeDestroy\nclearTimeout(this.pollingST);"
+        }
+      ],
+      "id": "iyB-eoww",
+      "createdAt": 1661446824110,
+      "updatedAt": 1661446833739
+    },
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "MUTzT3eM",
+      "tagsIds": [],
+      "description": null,
+      "name": "阻止a链接默认行为",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "javascript",
+          "value": "<a href=\"javascript:void(0)\"></a>"
+        }
+      ],
+      "id": "bmGxWMw5",
+      "createdAt": 1661446846214,
+      "updatedAt": 1661446856505
+    },
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "JAWHL2B3",
+      "tagsIds": [],
+      "description": null,
+      "name": "多行省略号",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "css",
+          "value": "overflow: hidden;\ndisplay: -webkit-box;\n-webkit-line-clamp: 2; //自定义行数\n-webkit-box-orient: vertical;\n"
+        }
+      ],
+      "id": "rf2deU_w",
+      "createdAt": 1661446873853,
+      "updatedAt": 1661446893417
+    },
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "JAWHL2B3",
+      "tagsIds": [],
+      "description": null,
+      "name": "单行省略号",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "css",
+          "value": "width:value;//宽度赋值\noverflow:hidden;\ntext-overflow:;\nwhite-space:no-wrap;"
+        }
+      ],
+      "id": "P5jEsEGR",
+      "createdAt": 1661446918843,
+      "updatedAt": 1661446927494
+    },
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "JAWHL2B3",
+      "tagsIds": [],
+      "description": null,
+      "name": "1/4圆",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "css",
+          "value": "// 只需要给一个角设置100%\nborder-top-left-radius:100%;"
+        }
+      ],
+      "id": "B33C4amL",
+      "createdAt": 1661446941108,
+      "updatedAt": 1661446964797
+    },
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "JAWHL2B3",
+      "tagsIds": [],
+      "description": null,
+      "name": "伪元素改列表符号",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "css",
+          "value": "li:maker{content:\"XXX\" color:\"xxx\"};"
+        }
+      ],
+      "id": "moGQ_CXB",
+      "createdAt": 1661446976963,
+      "updatedAt": 1661447006478
+    },
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "JAWHL2B3",
+      "tagsIds": [],
+      "description": null,
+      "name": "标准浅色投影",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "css",
+          "value": "0 2px 12px 0 rgba(0, 0, 0, 0.1)\n0 4px 14px 0 rgb(0 0 0 / 8%);"
+        }
+      ],
+      "id": "Qb2EvG-d",
+      "createdAt": 1661447034169,
+      "updatedAt": 1661447045879
+    },
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "JAWHL2B3",
+      "tagsIds": [],
+      "description": null,
+      "name": "渐变文字",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "css",
+          "value": "background-image: linear-gradient(to right, #c6ffdd, #fbd786, #f7797d);\nbackground-clip: text;\n-webkit-background-clip: text;\ncolor: transparent;"
+        }
+      ],
+      "id": "uF0LnWdO",
+      "createdAt": 1661447083888,
+      "updatedAt": 1661447090711
+    },
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "JAWHL2B3",
+      "tagsIds": [],
+      "description": null,
+      "name": "自定义光标",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "css",
+          "value": "html{\n  cursor:url('no.png'), auto;\n}"
+        }
+      ],
+      "id": "WV2FH5LP",
+      "createdAt": 1661447098735,
+      "updatedAt": 1661447103518
+    },
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "bbg1UnNX",
+      "tagsIds": [],
+      "description": null,
+      "name": "全屏切换",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "javascript",
+          "value": "let isFullScreen = false\nconst toggleFullScreen = () => {\n  if (!document.fullscreenElement) {\n    isFullScreen = true\n    document.documentElement.requestFullscreen()\n  } else if (document.exitFullscreen) {\n    isFullScreen = false\n    document.exitFullscreen()\n  }\n}"
+        }
+      ],
+      "id": "Jwt9dSN2",
+      "createdAt": 1661447147997,
+      "updatedAt": 1661447195340
+    }
+  ],
+  "tags": []
+}
