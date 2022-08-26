@@ -1,14 +1,25 @@
 {
   "folders": [
     {
-      "name": "loading特效",
-      "parentId": null,
+      "name": "loading动画",
+      "parentId": "EPfjJLfz",
       "isOpen": false,
       "isSystem": false,
       "defaultLanguage": "html",
       "id": "0_jBleIO",
       "createdAt": 1661437613841,
-      "updatedAt": 1661446011228,
+      "updatedAt": 1661476471744,
+      "index": 0
+    },
+    {
+      "name": "页面组件",
+      "parentId": null,
+      "isOpen": true,
+      "isSystem": false,
+      "defaultLanguage": "plain_text",
+      "id": "EPfjJLfz",
+      "createdAt": 1661477627081,
+      "updatedAt": 1661477652957,
       "index": 0
     },
     {
@@ -32,6 +43,39 @@
       "createdAt": 1661445976488,
       "updatedAt": 1661446044009,
       "index": 1
+    },
+    {
+      "name": "Object",
+      "parentId": "5VFeR9JD",
+      "isOpen": false,
+      "isSystem": false,
+      "defaultLanguage": "plain_text",
+      "id": "FVo0pKrs",
+      "createdAt": 1661476366453,
+      "updatedAt": 1661476372332,
+      "index": 2
+    },
+    {
+      "name": "业务",
+      "parentId": "5VFeR9JD",
+      "isOpen": false,
+      "isSystem": false,
+      "defaultLanguage": "plain_text",
+      "id": "AEHKMb0T",
+      "createdAt": 1661476298784,
+      "updatedAt": 1661476306404,
+      "index": 3
+    },
+    {
+      "name": "其他",
+      "parentId": "5VFeR9JD",
+      "isOpen": false,
+      "isSystem": false,
+      "defaultLanguage": "javascript",
+      "id": "PfVxt6qK",
+      "createdAt": 1661445558312,
+      "updatedAt": 1661446011231,
+      "index": 4
     },
     {
       "name": "utils",
@@ -87,17 +131,6 @@
       "createdAt": 1661445396155,
       "updatedAt": 1661446011231,
       "index": 5
-    },
-    {
-      "name": "其他",
-      "parentId": null,
-      "isOpen": false,
-      "isSystem": false,
-      "defaultLanguage": "javascript",
-      "id": "PfVxt6qK",
-      "createdAt": 1661445558312,
-      "updatedAt": 1661446011231,
-      "index": 6
     }
   ],
   "snippets": [
@@ -499,7 +532,7 @@
     {
       "isDeleted": false,
       "isFavorites": false,
-      "folderId": "5VFeR9JD",
+      "folderId": "AEHKMb0T",
       "tagsIds": [],
       "description": null,
       "name": "获取地址栏的query值",
@@ -512,12 +545,12 @@
       ],
       "id": "1KxwDKTp",
       "createdAt": 1661440565143,
-      "updatedAt": 1661440586470
+      "updatedAt": 1661476383544
     },
     {
       "isDeleted": false,
       "isFavorites": false,
-      "folderId": "5VFeR9JD",
+      "folderId": "FVo0pKrs",
       "tagsIds": [],
       "description": null,
       "name": "对象判空",
@@ -530,12 +563,12 @@
       ],
       "id": "P02w_zgA",
       "createdAt": 1661440643197,
-      "updatedAt": 1661440649513
+      "updatedAt": 1661476387135
     },
     {
       "isDeleted": false,
       "isFavorites": false,
-      "folderId": "5VFeR9JD",
+      "folderId": "AEHKMb0T",
       "tagsIds": [],
       "description": null,
       "name": "下载文件 ",
@@ -548,12 +581,12 @@
       ],
       "id": "7xMGdmkV",
       "createdAt": 1661441061418,
-      "updatedAt": 1661441085309
+      "updatedAt": 1661476389226
     },
     {
       "isDeleted": false,
       "isFavorites": false,
-      "folderId": "5VFeR9JD",
+      "folderId": "AEHKMb0T",
       "tagsIds": [],
       "description": null,
       "name": "下载自定义内容",
@@ -566,12 +599,12 @@
       ],
       "id": "jyhiiFwN",
       "createdAt": 1661441170429,
-      "updatedAt": 1661441221050
+      "updatedAt": 1661476391239
     },
     {
       "isDeleted": false,
       "isFavorites": false,
-      "folderId": "5VFeR9JD",
+      "folderId": "AEHKMb0T",
       "tagsIds": [],
       "description": "图片、pdf等文件，浏览器会默认执行预览，不能调用download方法进行下载，需要先把图片、pdf等文件转成blob，再调用download方法进行下载，转换的方式是使用axios请求对应的链接",
       "name": "下载图片、pdf",
@@ -584,12 +617,12 @@
       ],
       "id": "YYQ9wxOz",
       "createdAt": 1661441267726,
-      "updatedAt": 1661444490915
+      "updatedAt": 1661476358358
     },
     {
       "isDeleted": false,
       "isFavorites": false,
-      "folderId": "5VFeR9JD",
+      "folderId": "AEHKMb0T",
       "tagsIds": [],
       "description": null,
       "name": "防抖",
@@ -602,12 +635,12 @@
       ],
       "id": "NC7Vkg-u",
       "createdAt": 1661441320045,
-      "updatedAt": 1661441328876
+      "updatedAt": 1661476342324
     },
     {
       "isDeleted": false,
       "isFavorites": false,
-      "folderId": "5VFeR9JD",
+      "folderId": "AEHKMb0T",
       "tagsIds": [],
       "description": "options\n \nleading，函数在每个等待时延的开始被调用，默认值为false\ntrailing，函数在每个等待时延的结束被调用，默认值是true\n可以根据不同的值来设置不同的效果：\n\nleading-false，trailing-true：默认情况，即在延时结束后才会调用函数\nleading-true，trailing-true：在延时开始时就调用，延时结束后也会调用\nleading-true, trailing-false：只在延时开始时调用",
       "name": "节流",
@@ -620,12 +653,12 @@
       ],
       "id": "yUQcB--d",
       "createdAt": 1661441353950,
-      "updatedAt": 1661444468443
+      "updatedAt": 1661476344654
     },
     {
       "isDeleted": false,
       "isFavorites": false,
-      "folderId": "5VFeR9JD",
+      "folderId": "AEHKMb0T",
       "tagsIds": [],
       "description": null,
       "name": "复制内容到剪贴板",
@@ -638,12 +671,12 @@
       ],
       "id": "7WEpHSuD",
       "createdAt": 1661442854146,
-      "updatedAt": 1661444666249
+      "updatedAt": 1661476347316
     },
     {
       "isDeleted": false,
       "isFavorites": false,
-      "folderId": "5VFeR9JD",
+      "folderId": "AEHKMb0T",
       "tagsIds": [],
       "description": null,
       "name": "uuid",
@@ -656,12 +689,12 @@
       ],
       "id": "sN8V9R4v",
       "createdAt": 1661442963798,
-      "updatedAt": 1661442973609
+      "updatedAt": 1661476330345
     },
     {
       "isDeleted": false,
       "isFavorites": false,
-      "folderId": "5VFeR9JD",
+      "folderId": "AEHKMb0T",
       "tagsIds": [],
       "description": "只拷贝对象、数组以及对象数组，对于大部分场景已经足够",
       "name": "简单的深拷贝",
@@ -674,12 +707,12 @@
       ],
       "id": "okJmdLFo",
       "createdAt": 1661442988363,
-      "updatedAt": 1661444427197
+      "updatedAt": 1661476359644
     },
     {
       "isDeleted": false,
       "isFavorites": false,
-      "folderId": "5VFeR9JD",
+      "folderId": "FVo0pKrs",
       "tagsIds": [],
       "description": "//使用方式：\nlet req={\n    file:xxx,\n    userId:1,\n    phone:'15198763636',\n    //...\n}\nfetch(getFormData(req))",
       "name": "对象转化为FormData对象",
@@ -692,7 +725,7 @@
       ],
       "id": "qi2VwPSn",
       "createdAt": 1661443094063,
-      "updatedAt": 1661444406979
+      "updatedAt": 1661476416826
     },
     {
       "isDeleted": false,
@@ -859,7 +892,7 @@
     {
       "isDeleted": false,
       "isFavorites": false,
-      "folderId": "5VFeR9JD",
+      "folderId": "FVo0pKrs",
       "tagsIds": [],
       "description": "{name:xxx,age:11} -> name=xxx&age=11",
       "name": "对象转成urlencode",
@@ -872,12 +905,12 @@
       ],
       "id": "3hG788FT",
       "createdAt": 1661444331317,
-      "updatedAt": 1661444394681
+      "updatedAt": 1661476418661
     },
     {
       "isDeleted": false,
       "isFavorites": false,
-      "folderId": "5VFeR9JD",
+      "folderId": "FVo0pKrs",
       "tagsIds": [],
       "description": "使用方式：getObjByUrl('a=b&name=xxx%20djdj')",
       "name": "url编码转成json格式",
@@ -890,7 +923,7 @@
       ],
       "id": "sxXoJxUM",
       "createdAt": 1661444363944,
-      "updatedAt": 1661444381189
+      "updatedAt": 1661476423062
     },
     {
       "isDeleted": false,
@@ -1129,7 +1162,7 @@
     {
       "isDeleted": false,
       "isFavorites": false,
-      "folderId": "5VFeR9JD",
+      "folderId": "AEHKMb0T",
       "tagsIds": [],
       "description": null,
       "name": "范围内的随机数",
@@ -1142,7 +1175,7 @@
       ],
       "id": "doK0X_TD",
       "createdAt": 1661445796226,
-      "updatedAt": 1661445812168
+      "updatedAt": 1661476355416
     },
     {
       "isDeleted": false,
@@ -1183,7 +1216,7 @@
     {
       "isDeleted": false,
       "isFavorites": false,
-      "folderId": "5VFeR9JD",
+      "folderId": "PfVxt6qK",
       "tagsIds": [],
       "description": null,
       "name": "生成随机HEX色值",
@@ -1196,7 +1229,7 @@
       ],
       "id": "n6-QgjeF",
       "createdAt": 1661446547563,
-      "updatedAt": 1661446600063
+      "updatedAt": 1661477575724
     },
     {
       "isDeleted": false,
@@ -1237,7 +1270,7 @@
     {
       "isDeleted": false,
       "isFavorites": false,
-      "folderId": "5VFeR9JD",
+      "folderId": "AEHKMb0T",
       "tagsIds": [],
       "description": null,
       "name": "轮询",
@@ -1250,7 +1283,7 @@
       ],
       "id": "iyB-eoww",
       "createdAt": 1661446824110,
-      "updatedAt": 1661446833739
+      "updatedAt": 1661476310892
     },
     {
       "isDeleted": false,
@@ -1413,6 +1446,42 @@
       "id": "Jwt9dSN2",
       "createdAt": 1661447147997,
       "updatedAt": 1661447195340
+    },
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "PfVxt6qK",
+      "tagsIds": [],
+      "description": "本年至过去十年",
+      "name": "生成年份列表",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "javascript",
+          "value": "const createYearSelect = () => {\n  let yearList = [];\n  for (let i = 0; i < 10; i++) {\n    yearList.push({\n      value: new Date().getFullYear() - i,\n      name: new Date().getFullYear() - i\n    });\n  }\n  return yearList;\n};"
+        }
+      ],
+      "id": "9Pj957j0",
+      "createdAt": 1661477493323,
+      "updatedAt": 1661477544947
+    },
+    {
+      "isDeleted": true,
+      "isFavorites": false,
+      "folderId": "",
+      "tagsIds": [],
+      "description": null,
+      "name": "aa",
+      "content": [
+        {
+          "label": "Fragment 1",
+          "value": "    \n",
+          "language": "plain_text"
+        }
+      ],
+      "id": "AaYlerlH",
+      "createdAt": 1661478748995,
+      "updatedAt": 1661478762737
     }
   ],
   "tags": []
