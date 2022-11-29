@@ -14,7 +14,7 @@
     {
       "name": "页面组件",
       "parentId": null,
-      "isOpen": true,
+      "isOpen": false,
       "isSystem": false,
       "defaultLanguage": "plain_text",
       "id": "EPfjJLfz",
@@ -80,7 +80,7 @@
     {
       "name": "utils",
       "parentId": null,
-      "isOpen": false,
+      "isOpen": true,
       "isSystem": false,
       "defaultLanguage": "javascript",
       "id": "5VFeR9JD",
@@ -104,10 +104,10 @@
       "parentId": null,
       "isOpen": false,
       "isSystem": false,
-      "defaultLanguage": "plain_text",
+      "defaultLanguage": "javascript",
       "id": "bbg1UnNX",
       "createdAt": 1661446327560,
-      "updatedAt": 1661446331251,
+      "updatedAt": 1664503373856,
       "index": 3
     },
     {
@@ -576,12 +576,12 @@
         {
           "label": "子片段 1",
           "language": "javascript",
-          "value": "//下载一个链接 \nfunction download(link, name) {\n    if(!name){\n            name=link.slice(link.lastIndexOf('/') + 1)\n    }\n    let eleLink = document.createElement('a')\n    eleLink.download = name\n    eleLink.style.display = 'none'\n    eleLink.href = link\n    document.body.appendChild(eleLink)\n    eleLink.click()\n    document.body.removeChild(eleLink)\n}\n//下载excel\ndownload('http://111.229.14.189/file/1.xlsx')"
+          "value": "//下载一个链接 \nfunction download(link, name) {\n    if(!name){\n            name=link.slice(link.lastIndexOf('/') + 1)\n    }\n    let eleLink = document.createElement('a')\n    eleLink.download = name\n    eleLink.style.display = 'none'\n    eleLink.href = link\n    document.body.appendChild(eleLink)\n    eleLink.click()\n    document.body.removeChild(eleLink)\n}\n//下载excel\ndownload('http://111.229.14.189/file/1.xlsx')\n// 下载文件流\n handlerDownload(record) {\n      const { id } = record;\n      const type = {\n        doc: \"application/msword;chartset=UTF-8\",\n        pdf: \"application/pdf;chartset=UTF-8\",\n        docx: \"application/vnd.openxmlformats-officedocument.wordprocessingml.document\",\n      };\n      this.$api.sys.konwLeageDownload({ id }).then(res => {\n        const disposition = decodeURIComponent(\n          res.headers[\"content-disposition\"]\n        );\n        const extend = disposition.split(\".\")[1];\n        const filename = disposition.split(\"filename=\")[1];\n        const url = URL.createObjectURL(\n          new Blob([res.data], { type: type[extend] })\n        );\n        let a = document.createElement(\"a\");\n        a.style.display = \"none\";\n        a.href = url;\n        a.download = filename;\n        document.body.appendChild(a);\n        a.click();\n        document.body.removeChild(a);\n        URL.revokeObjectURL(url);\n      });\n    },"
         }
       ],
       "id": "7xMGdmkV",
       "createdAt": 1661441061418,
-      "updatedAt": 1661476389226
+      "updatedAt": 1663126948748
     },
     {
       "isDeleted": false,
@@ -658,7 +658,7 @@
     {
       "isDeleted": false,
       "isFavorites": false,
-      "folderId": "AEHKMb0T",
+      "folderId": "bbg1UnNX",
       "tagsIds": [],
       "description": null,
       "name": "复制内容到剪贴板",
@@ -666,12 +666,12 @@
         {
           "label": "子片段 1",
           "language": "javascript",
-          "value": "copyPersonURL(content) {\n    let that = this\n    if (window.ClipboardData) {\n        window.clipboardData.setData('text', content)\n        this.$message.success('链接复制成功')\n    } else {\n        ;(function (content) {\n            document.oncopy = function (e) {\n                e.clipboardData.setData('text', content)\n                e.preventDefault()\n                document.oncopy = null\n                that.$message.success('链接复制成功')\n            }\n        })(content)\n        document.execCommand('Copy')\n    }\n},"
+          "value": "function setClipboard(text) {\n  let data = new DataTransfer();\n\n  data.items.add(\"text/plain\", text);\n  navigator.clipboard.write(data).then(function() {\n    /* success */\n  }, function() {\n    /* failure */\n  });\n}"
         }
       ],
       "id": "7WEpHSuD",
       "createdAt": 1661442854146,
-      "updatedAt": 1661476347316
+      "updatedAt": 1664503592926
     },
     {
       "isDeleted": false,
@@ -1278,12 +1278,12 @@
         {
           "label": "子片段 1",
           "language": "javascript",
-          "value": "// data\npollingST: null,\n// mounted\nthis.polling();\n// methods\npolling() {\n  this.pollingST = setTimeout(() => {\n    console.log(\"轮询了\");\n    this.getList();\n    clearTimeout(this.pollingST);\n    this.polling();\n    // 30秒轮询一次\n  }, 30000);\n},\n// beforeDestroy\nclearTimeout(this.pollingST);"
+          "value": "created() {\n  let timer = setInterval(() => {\n    this.count++;\n    }, 1000);\n  this.$once(\"hook:beforeDestroy\", () => {\n    clearInterval(timer);\n      timer = null;\n    });\n}\n"
         }
       ],
       "id": "iyB-eoww",
       "createdAt": 1661446824110,
-      "updatedAt": 1661476310892
+      "updatedAt": 1668743717420
     },
     {
       "isDeleted": false,
@@ -1482,7 +1482,176 @@
       "id": "AaYlerlH",
       "createdAt": 1661478748995,
       "updatedAt": 1661478762737
+    },
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "bbg1UnNX",
+      "tagsIds": [],
+      "description": null,
+      "name": "当前焦点元素",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "javascript",
+          "value": "const elementIsInFocus = (el) => (el === document.activeElement);"
+        }
+      ],
+      "id": "srSri8v1",
+      "createdAt": 1664503305764,
+      "updatedAt": 1664503360173
+    },
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "bbg1UnNX",
+      "tagsIds": [],
+      "description": null,
+      "name": "检查设备类型",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "javascript",
+          "value": "const judgeDeviceType = () => /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|OperaMini/i.test(navigator.userAgent) ? 'Mobile' : 'PC';"
+        }
+      ],
+      "id": "8dnLaxxM",
+      "createdAt": 1664503406228,
+      "updatedAt": 1664503437522
+    },
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "bbg1UnNX",
+      "tagsIds": [],
+      "description": null,
+      "name": "获取选定的文本",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "javascript",
+          "value": "const getSelectedText = () => window.getSelection().toString();"
+        }
+      ],
+      "id": "SvgIRJhB",
+      "createdAt": 1664503639054,
+      "updatedAt": 1664503646684
+    },
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "PfVxt6qK",
+      "tagsIds": [],
+      "description": null,
+      "name": "查询某天是否为工作日",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "javascript",
+          "value": "const isWeekday = (date) => date.getDay() % 6 !== 0;"
+        }
+      ],
+      "id": "nA3756Oi",
+      "createdAt": 1664503656146,
+      "updatedAt": 1664503660743
+    },
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "PfVxt6qK",
+      "tagsIds": [],
+      "description": null,
+      "name": "温度转换",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "javascript",
+          "value": "// 华氏温度转换为摄氏温度\nconst fahrenheitToCelsius = (fahrenheit) => (fahrenheit - 32) * 5/9;\n// 摄氏温度转华氏温度\nconst celsiusToFahrenheit = (celsius) => celsius * 9/5 + 32;"
+        }
+      ],
+      "id": "AvwBCPP-",
+      "createdAt": 1664503670714,
+      "updatedAt": 1664503698179
+    },
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "PfVxt6qK",
+      "tagsIds": [],
+      "description": null,
+      "name": "RGB 转换为十六进制",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "javascript",
+          "value": "// RGB 转换为十六进制\nconst rgbToHex = (r, g, b) =>   \"#\" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);"
+        }
+      ],
+      "id": "qC0BWY4n",
+      "createdAt": 1664503718986,
+      "updatedAt": 1664503739047
+    },
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "MUTzT3eM",
+      "tagsIds": [],
+      "description": null,
+      "name": "监测暗色主题",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "javascript",
+          "value": "const isDarkMode = () => window.matchMedia && window.matchMedia(\"(prefers-color-scheme: dark)\").matches;"
+        }
+      ],
+      "id": "mZye6pJ1",
+      "createdAt": 1664505150113,
+      "updatedAt": 1664505167412
+    },
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "MUTzT3eM",
+      "tagsIds": [],
+      "description": null,
+      "name": "元素滚动到顶部",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "javascript",
+          "value": "const scrollToTop = (element) => element.scrollIntoView({ behavior: \"smooth\", block: \"start\" }); // block: \"end\" 为底部"
+        }
+      ],
+      "id": "SVYl3kLC",
+      "createdAt": 1664505271407,
+      "updatedAt": 1664505313822
+    },
+    {
+      "isDeleted": false,
+      "isFavorites": false,
+      "folderId": "PfVxt6qK",
+      "tagsIds": [],
+      "description": null,
+      "name": "秒数转天时分秒",
+      "content": [
+        {
+          "label": "子片段 1",
+          "language": "javascript",
+          "value": "function formatDate(second) {\n  const minutes = Math.floor(((second % 86400) % 3600) / 60)\n  const seconds = Math.floor(((second % 86400) % 3600) % 60)\n  return {\n    days: Math.floor(second / 86400),\n    hours: Math.floor((second % 86400) / 3600),\n    minutes: minutes > 9 ? minutes : '0' + minutes,\n    seconds: seconds > 9 ? seconds : '0' + seconds\n  }\n}\n"
+        }
+      ],
+      "id": "ZRxM26qQ",
+      "createdAt": 1669617563225,
+      "updatedAt": 1669617608093
     }
   ],
-  "tags": []
+  "tags": [
+    {
+      "name": "111",
+      "id": "gvwlCP3e",
+      "createdAt": 1664505166055,
+      "updatedAt": 1664505166055
+    }
+  ]
 }
